@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-jheqnti15uce*tc%$l0cbj1laomsfav^b+-wg0w1y)sl!m^%_$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 CORS_ALLOW_ALL_ORIGINS = True
 
 
@@ -95,8 +95,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '2fFA6aBB6efDa*cE-26C26e35g16F135',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '10289',
     }
 }
 
@@ -176,6 +180,9 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
